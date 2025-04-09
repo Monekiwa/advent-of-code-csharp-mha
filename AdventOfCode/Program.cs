@@ -1,5 +1,5 @@
 ﻿using System;
-using AdventCodeChallanges.Days;
+using AdventCodeChallanges.Days;  
 
 namespace AdventOfCode
 {
@@ -9,13 +9,20 @@ namespace AdventOfCode
         {
             try
             {
-                Day1 day1 = new Day1();
+                Console.WriteLine("Running Day 1...");
+                var day1 = new Day1(); 
+                Console.WriteLine($"Day 1 Part 1 - Total Distance: {day1.Part1()}");
+                Console.WriteLine($"Day 1 Part 2 - Similarity Score: {day1.Part2()}");
+                Console.WriteLine(); 
 
-                long part1Result = day1.Part1();
-                Console.WriteLine("Part 1: " + part1Result);
+                Console.WriteLine("Running Day 2...");
+                string inputData = System.IO.File.ReadAllText(@"Input/data.txt");
 
-                long part2Result = day1.Part2();
-                Console.WriteLine("Part 2: " + part2Result);
+                int safeReportsPart1 = Day2.CountSafeReports(inputData);
+                Console.WriteLine($"Day 2 Part 1 - Safe reports: {safeReportsPart1}");
+
+                int safeReportsPart2 = Day2.CountSafeReportsWithDampener(inputData);
+                Console.WriteLine($"Day 2 Part 2 - Safe reports with dampener: {safeReportsPart2}");
             }
             catch (Exception ex)
             {
